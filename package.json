@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "description": "healthy on Docker",
   "scripts": {
-    "dev": "npx ts-node-dev src/server.ts",
+    "dev": "tsoa routes && npx ts-node-dev src/server.ts",
     "format": "prettier --write 'src/**/*.{js,ts}'",
-    "lint": "eslint --fix 'src/**/*.{js,,ts}'",
+    "lint": "eslint --fix 'src/**/*.{js,ts}'",
     "lint-fix": "eslint --fix 'src/**/*.{js,ts}' && prettier --write 'src/**/*.{js,ts}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "spec": "tsoa spec"
   },
   "dependencies": {
     "express": "^4.18.2"
