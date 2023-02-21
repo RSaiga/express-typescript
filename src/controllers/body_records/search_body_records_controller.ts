@@ -1,4 +1,5 @@
-import { Controller, Get, Route, Tags } from 'tsoa'
+import {Controller, Get, Route, Tags} from 'tsoa'
+import {BodyRecord} from "../../domain/models/body_records/body_record";
 
 @Route('body_records')
 @Tags('body_records')
@@ -17,9 +18,3 @@ export class SearchBodyRecordsController extends Controller {
   }
 }
 
-export interface BodyRecord {
-  id: string
-  weight: number
-  fat_rate: number
-  date: string
-}
