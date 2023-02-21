@@ -4,10 +4,10 @@ import { Controller, Get, Path, Route, Tags } from 'tsoa'
 @Tags('user')
 export class SearchUserController extends Controller {
   @Get('{userId}')
-  public async get(@Path() userId: number): Promise<User> {
+  public async get (@Path() userId: number): Promise<User> {
     return {
       id: userId,
-      name: 'Test User',
+      name: 'Test User'
     }
   }
 }
