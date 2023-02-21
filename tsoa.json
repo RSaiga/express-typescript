@@ -3,11 +3,11 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/**/*controller.ts"],
   "spec": {
-    "outputDirectory": "build",
+    "outputDirectory": "fixture",
     "specVersion": 3,
     "basePath": "/api/v1"
   },
   "routes": {
-    "routesDir": "build"
+    "routesDir": "fixture"
   }
 }

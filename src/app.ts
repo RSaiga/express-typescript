@@ -1,5 +1,5 @@
 import express, { json, Router, urlencoded, type Response as ExResponse, type Request as ExRequest } from 'express'
-import { RegisterRoutes } from '../build/routes'
+import { RegisterRoutes } from '../fixture/routes'
 import swaggerUi from 'swagger-ui-express'
 
 export const app = express()
@@ -10,5 +10,5 @@ app.use('/api/v1', router)
 RegisterRoutes(router)
 
 app.use('/docs', swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
-  return res.send(swaggerUi.generateHTML(await import('../build/swagger.json')))
+  return res.send(swaggerUi.generateHTML(await import('../fixture/swagger.json')))
 })
