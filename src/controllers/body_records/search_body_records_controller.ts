@@ -4,7 +4,7 @@ import { Controller, Get, Route, Tags } from 'tsoa'
 @Tags('body_records')
 export class SearchBodyRecordsController extends Controller {
   @Get()
-  public async get (): Promise<any> {
+  public async get (): Promise<BodyRecord[]> {
     return [
       { id: 'test2', weight: 64, fat_rate: 20.1, date: '2023-02-03' },
       {
@@ -15,4 +15,11 @@ export class SearchBodyRecordsController extends Controller {
       }
     ]
   }
+}
+
+export interface BodyRecord {
+  id: string
+  weight: number
+  fat_rate: number
+  date: string
 }
