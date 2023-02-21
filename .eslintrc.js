@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: 'standard-with-typescript',
   overrides: [],
@@ -10,11 +10,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.json']
   },
   plugins: ['@typescript-eslint'],
   rules: {
     semi: ['off', 'always'],
-    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
-  },
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }]
+  }
 }
