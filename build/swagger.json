@@ -1,0 +1,78 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"User": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "healthy",
+		"version": "0.0.1",
+		"description": "healthy on Docker",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/users/{userId}": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"user"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/api/v1"
+		}
+	]
+}

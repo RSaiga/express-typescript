@@ -15,5 +15,6 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     semi: ['off', 'always'],
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
   },
 }
