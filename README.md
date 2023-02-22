@@ -26,3 +26,16 @@
 docker must be running.
 
 ## Setting development environment
+### DB migration
+```shell
+$ docker-compose run --rm backend npm run prisma:migrate 
+```
+### DB seed
+```shell
+$ docker-compose run --rm backend npm run prisma:seed 
+```
+### DB Client generate
+```shell
+$ docker-compose run --rm backend npm run prisma:generate 
+```
+
