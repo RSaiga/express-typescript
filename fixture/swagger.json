@@ -6,6 +6,32 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"BodyRecord": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"weight": {
+						"type": "number",
+						"format": "double"
+					},
+					"fat_rate": {
+						"type": "number",
+						"format": "double"
+					},
+					"date": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"weight",
+					"fat_rate",
+					"date"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"User": {
 				"properties": {
 					"id": {
@@ -37,6 +63,31 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
+		"/body_records": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/BodyRecord"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"body_records"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/users/{userId}": {
 			"get": {
 				"operationId": "Get",
