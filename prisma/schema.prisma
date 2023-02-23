@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin-arm64"]
 }
 
 datasource db {
@@ -10,18 +11,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model USER {
-  id          String        @db.VarChar(36) @id
-  name        String        @db.VarChar(50)
-  email       String        @db.VarChar(254) @unique
-  body_record BODY_RECORD[]
+model User {
+  id         String        @db.VarChar(36) @id
+  name       String        @db.VarChar(50)
+  email      String        @db.VarChar(254) @unique
+  bodyRecord BodyRecord[]
+  @@map("USER")
 }
 
-model BODY_RECORD {
+model BodyRecord {
   id            String   @db.VarChar(36) @id
-  user_id       String   @db.VarChar(36)
-  user          USER     @relation(fields: [user_id], references: [id])
+  userID        String   @db.VarChar(36) @map("user_id")
+  user          User     @relation(fields: [userID], references: [id])
   weight        Float
-  fat_late      Float
-  recorded_date DateTime @db.Date
+  fatLate      Float @map("fat_late")
+  recordedDate DateTime @db.Date @map("recorded_date")
+  @@map("BODY_RECORD")
 }

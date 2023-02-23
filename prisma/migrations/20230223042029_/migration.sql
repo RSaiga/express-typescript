@@ -1,19 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `BodyRecord` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `User` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropForeignKey
-ALTER TABLE "BodyRecord" DROP CONSTRAINT "BodyRecord_userId_fkey";
-
--- DropTable
-DROP TABLE "BodyRecord";
-
--- DropTable
-DROP TABLE "User";
-
 -- CreateTable
 CREATE TABLE "USER" (
     "id" VARCHAR(36) NOT NULL,
@@ -29,7 +13,7 @@ CREATE TABLE "BODY_RECORD" (
     "user_id" VARCHAR(36) NOT NULL,
     "weight" DOUBLE PRECISION NOT NULL,
     "fat_late" DOUBLE PRECISION NOT NULL,
-    "recorded_date" TIMESTAMP(3) NOT NULL,
+    "recorded_date" DATE NOT NULL,
 
     CONSTRAINT "BODY_RECORD_pkey" PRIMARY KEY ("id")
 );

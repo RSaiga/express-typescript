@@ -7,6 +7,6 @@ import { BodyRecordsUseCase } from '../../usecases/body_records/body_records_use
 export class SearchBodyRecordsController extends Controller {
   @Get()
   public async get(): Promise<BodyRecord[]> {
-    return new BodyRecordsUseCase().find()
+    return await new BodyRecordsUseCase().find()
   }
 }

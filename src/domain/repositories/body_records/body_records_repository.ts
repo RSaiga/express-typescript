@@ -1,8 +1,22 @@
 import { type BodyRecord } from '../../models/body_records/body_record'
+import { PrismaClient } from '@prisma/client'
 
 export class BodyRecordsRepository {
-  find = (): BodyRecord[] => [
-    { id: 'test2', weight: 64, fat_rate: 20.1, date: '2023-02-03' },
-    { id: 'test1', weight: 65, fat_rate: 20.8, date: '2023-02-02' },
-  ]
+  find = async (): Promise<BodyRecord[]> => {
+    const prisma = new PrismaClient()
+    const records = await prisma.bodyRecord.findMany()
+    return records.map((value) => ({
+      id: value.id,
+      weight: value.weight,
+      fat_rate: value.fatLate,
+      date: value.recordedDate
+        .toLocaleDateString('ja-JP', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+        })
+        .split('/')
+        .join('-'),
+    }))
+  }
 }
